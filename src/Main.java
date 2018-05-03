@@ -2,7 +2,7 @@ import java.util.Stack;
 
 public class Main {
 
-    private static String[] op = { "+", "-", "*", "÷" };// Operation set
+    private static String[] op = { "+", "-", "*", "/" };// Operation set
     public static void main(String[] args) {
         String question = MakeFormula();
         System.out.println(question);
@@ -14,11 +14,11 @@ public class Main {
         StringBuilder build = new StringBuilder();
         int count = (int) (Math.random() * 2) + 1; // generate random count
         int start = 0;
-        int number1 = (int) (Math.random() * 100);
+        int number1 = (int) (Math.random() * 99) + 1;
         build.append(number1);
         while (start <= count){
-            int operation = (int) (Math.random() * 4); // generate operator
-            int number2 = (int) (Math.random() * 100);
+            int operation = (int) (Math.random() * 3); // generate operator
+            int number2 = (int) (Math.random() * 99) + 1;
             build.append(op[operation]).append(number2);
             start ++;
         }
