@@ -1,0 +1,5 @@
+﻿  Calculator.cpp
+e:\buaase\calculator\calculator\calculator.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\buaase\calculator\calculator\calculator.cpp(75): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> E:\buaaSE\Calculator\Debug\Calculator.exe
+  Calculator.vcxproj -> E:\buaaSE\Calculator\Debug\Calculator.pdb (Partial PDB)
