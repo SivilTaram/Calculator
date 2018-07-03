@@ -1,0 +1,4 @@
+﻿  stdafx.cpp
+  Calculator.cpp
+d:\calculator\niuxiaoxia-program\calculator\calculator\calculator.cpp(74): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> D:\Calculator\niuxiaoxia-program\Calculator\Debug\Calculator.exe
