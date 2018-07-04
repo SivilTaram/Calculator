@@ -25,7 +25,7 @@ public:
 		formula += to_string(number1);
 		while (start <= count) {
 			int operation = random(0, 3);
-			int number2 = random(1, 100);
+			int number2 = random(1, 10);
 			formula += op[operation] + to_string(number2);
 			start++;
 		}
@@ -38,29 +38,32 @@ public:
 		int len = formula.length();
 		int k = 0;
 		for (int j = -1; j < len - 1; j++) {
-			char formulaChar = formula[j + 1];
+			char formulaChar = formula[j + 1]; //取出后一个字符
 			if (j == len - 2 || formulaChar == '+' || formulaChar == '-' ||
-				formulaChar == '*' || formulaChar == '/') {
+				formulaChar == '*' || formulaChar == '/') { //是最后一个字符或者是加减乘除
 				if (j == len - 2) {
 					tempStack->push_back(formula.substr(k));
 				}
 				else {
-					if (k < j) {
-						tempStack->push_back(formula.substr(k, j + 1));
+					if (k <= j) {
+						tempStack->push_back(formula.substr(k, j-k+1)); //截取之前的子字符串
 					}
-					if (operatorStack->empty()) {
+					if (operatorStack->empty()) { //如果此时运算符栈为空，那么直接把该运算符压入运算符栈
 						operatorStack->push(formulaChar);
 					}
 					else {
-						char stackChar = operatorStack->top();
+						char stackChar = operatorStack->top(); //取出栈顶字符
 						if ((stackChar == '+' || stackChar == '-')
-							&& (formulaChar == '*' || formulaChar == '/')) {
-							operatorStack->push(formulaChar);
+							&& (formulaChar == '*' || formulaChar == '/')) { //栈顶是加减而当前运算符是乘除
+							operatorStack->push(formulaChar); //运算符栈压入当前运算符
 						}
 						else {
-							tempStack->push_back(to_string(operatorStack->top()));
+							char cc = operatorStack->top();
+							string ss = "";
+							ss.push_back(cc);
+							tempStack->push_back(ss); 
 							operatorStack->pop();
-							operatorStack->push(formulaChar);
+							operatorStack->push(formulaChar); 
 						}
 					}
 				}
@@ -112,21 +115,25 @@ private:
 
 int main()
 {
-	/*
 	Calculator* calc = new Calculator();
 	string question = calc->MakeFormula();
 	cout << question << endl;
-	string ret = calc->Solve("11+22");
+	string ret = calc->Solve("15÷5 + 3 - 2");// question);// "11+22");
 	cout << ret << endl;
 	cout << "That's the sample. Now enter for finish" << endl;
 	getchar();
-	*/
-	for (int i = 0; i < 10000000; i++) {
+
+	//  13 + 17 - 1 = 29
+	//	11 * 15 - 5 = 160
+	//	3 + 10 + 4 - 16 = 1
+	//	15÷5 + 3 - 2 = 4
+	
+	/*for (int i = 0; i < 10000000; i++) {
 		Calculator* calc = new Calculator();
 		string question = calc->MakeFormula();
 		cout << question << endl;
 		string ret = calc->Solve("11+22");
 		cout << ret << endl;
-	}
+	}*/
 }
 
