@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Stack;
 
 public class Main {
@@ -10,6 +12,7 @@ public class Main {
         System.out.println(ret);
     }
 
+    @org.jetbrains.annotations.NotNull
     public static String MakeFormula(){
         StringBuilder build = new StringBuilder();
         int count = (int) (Math.random() * 2) + 1; // generate random count
@@ -25,9 +28,10 @@ public class Main {
         return build.toString();
     }
 
+    @NotNull
     public static String Solve(String formula){
-        Stack<String> tempStack = new Stack<>();//Store number or operator
-        Stack<Character> operatorStack = new Stack<>();//Store operator
+        Stack<String> tempStack = new Stack<String>();  // Store number or operator
+        Stack<Character> operatorStack = new Stack<Character>();  // Store operator
         int len = formula.length();
         int k = 0;
         for(int j = -1; j < len - 1; j++){
@@ -37,19 +41,23 @@ public class Main {
                     tempStack.push(formula.substring(k));
                 }
                 else {
-                    if(k < j){
+                    // v-zhihu
+                    if (k <= j) {
                         tempStack.push(formula.substring(k, j + 1));
                     }
-                    if(operatorStack.empty()){
-                        operatorStack.push(formulaChar); //if operatorStack is empty, store it
-                    }else{
-                        char stackChar = operatorStack.peek();
-                        if ((stackChar == '+' || stackChar == '-')
-                                && (formulaChar == '*' || formulaChar == '/')){
-                            operatorStack.push(formulaChar);
-                        }else {
-                            tempStack.push(operatorStack.pop().toString());
-                            operatorStack.push(formulaChar);
+                    while (true) {
+                        if (operatorStack.empty()) {
+                            operatorStack.push(formulaChar); //if operatorStack is empty, store it
+                            break;
+                        } else {
+                            char stackChar = operatorStack.peek();
+                            if ((stackChar == '+' || stackChar == '-')
+                                    && (formulaChar == '*' || formulaChar == '/')) {
+                                operatorStack.push(formulaChar);
+                                break;
+                            } else {
+                                tempStack.push(operatorStack.pop().toString());
+                            }
                         }
                     }
                 }
@@ -59,7 +67,7 @@ public class Main {
         while (!operatorStack.empty()){ // Append remaining operators
             tempStack.push(operatorStack.pop().toString());
         }
-        Stack<String> calcStack = new Stack<>();
+        Stack<String> calcStack = new Stack<String>();
         for(String peekChar : tempStack){ // Reverse traversing of stack
             if(!peekChar.equals("+") && !peekChar.equals("-") && !peekChar.equals("/") && !peekChar.equals("*")) {
                 calcStack.push(peekChar); // Push number to stack
