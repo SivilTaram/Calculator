@@ -41,18 +41,22 @@ string Calculator::Solve(string formula) {
 	for (int j = -1; j < len - 1; j++) {
 		char formulaChar = formula[j + 1];
 		if (j == len - 2 || formulaChar == '+' || formulaChar == '-' ||
-			formulaChar == '*' || formulaChar == '/') {
-			if (j == len - 2) {
+			formulaChar == '*' || formulaChar == '/') 
+		{
+			if (j == len - 2) 
+			{
 				tempStack->push_back(formula.substr(k));
 			}
-			else {
+			else 
+			{
 				if (k < j) {
 					tempStack->push_back(formula.substr(k, j + 1));
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
 				}
-				else {
+				else 
+				{
 					char stackChar = operatorStack->top();
 					if ((stackChar == '+' || stackChar == '-')
 						&& (formulaChar == '*' || formulaChar == '/')) {
@@ -109,11 +113,12 @@ string Calculator::Solve(string formula) {
 
 int main()
 {
-	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve(question);
-	cout << ret << endl;
-	getchar();
+	for (int i = 0; i < 10000000; i++) {
+		Calculator* calc = new Calculator();
+		string question = calc->MakeFormula();
+		cout << question << endl;
+		string ret = calc->Solve(question);
+		cout << ret << endl;
+	}
 }
 
