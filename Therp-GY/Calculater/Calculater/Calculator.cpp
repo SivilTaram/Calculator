@@ -1,7 +1,7 @@
-﻿
-#include <stack>
+﻿#include <stack>
 #include <vector>
 #include <iostream>
+#include <fstream>
 #include "stdlib.h"
 #include <ctime>
 #include <string>
@@ -15,14 +15,23 @@ Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(2, 3);
 	int start = 0;
-	int number1 = random(1, 100);
+	int number1 = random(0, 100);
+	int dived = number1;
 	formula += to_string(number1);
-	while (start <= count) {
-		int operation = random(0, 3);
-		int number2 = random(1, 100);
+	while (start < count) {
+		int operation = rand() % 4;
+		int number2 = rand() % 101;
+		if (op[operation] == "/"){
+			while (number2 == 0 || dived % number2 != 0) {
+				number2 = rand() % 101;
+			}
+			dived = dived / number2;
+		}
+		else {
+			dived = number2;
+		}
 		formula += op[operation] + to_string(number2);
 		start++;
 	}
@@ -42,9 +51,8 @@ string Calculator::Solve(string formula) {
 				tempStack->push_back(formula.substr(k));
 			}
 			else {
-				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
-				}
+				tempStack->push_back(formula.substr(k, j + 1 - k));
+
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
 				}
@@ -55,7 +63,7 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+						tempStack->push_back(string(1, operatorStack->top()));
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
 					}
@@ -105,11 +113,18 @@ string Calculator::Solve(string formula) {
 
 int main()
 {
+	int n;
+	const string filename = "subject.txt";
+	ofstream fout(filename.c_str());
 	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22");
-	cout << ret << endl;
+	cout << "你要做几道题：" << endl;
+	//cin >> n;
+	srand((unsigned int)time(NULL));
+	for (int i = 0; i < 100000; i++) {
+		string question = calc->MakeFormula();
+		cout << question << endl;
+		fout << calc->Solve(question) << endl;
+	}
 	getchar();
 }
 
