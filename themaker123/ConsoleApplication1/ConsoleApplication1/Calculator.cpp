@@ -64,7 +64,7 @@ string Calculator::Solve(string formula) {
 				tempStack->push_back(formula.substr(k));
 			}
 			else {
-				if (k < j) {
+				if (k <= j) {
 					tempStack->push_back(formula.substr(k, j + 1));
 				}
 				if (operatorStack->empty()) {
@@ -77,8 +77,13 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
-						operatorStack->pop();
+						while (!operatorStack->empty()) {
+							string tmp = "";
+							tmp.append(1,operatorStack->top());
+							tempStack->push_back(tmp);
+							operatorStack->pop();
+						}
+						
 						operatorStack->push(formulaChar);
 					}
 				}
@@ -137,7 +142,7 @@ int main()
 		string question = calc.MakeFormula();
 		//cout << question << endl;
 		string ret = calc.Solve(question);
-		out <<  ret << endl;
+		cout <<  ret << endl;
 	}
 	out.close();
 	return 0;
