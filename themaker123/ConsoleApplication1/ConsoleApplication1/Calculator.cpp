@@ -18,7 +18,6 @@ Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	//srand((unsigned int)time(NULL));
 	int count = random(2, 3);
 	int start = 1;
 	int number1 = random(0, 100);
@@ -40,11 +39,11 @@ string Calculator::MakeFormula() {
 			number2 = tp;
 			formula += op[operation] + to_string(number2);
 		}
-	/*	if (operation == 2) lastNumber = lastNumber * number2;
+		if (operation == 2) lastNumber = lastNumber * number2;
 		else if (operation == 3) lastNumber = lastNumber / number2;
 		else lastNumber = number2;
-	*/
-		lastNumber = number2;
+	
+		//lastNumber = number2;
 	//	cout << "lastNUmber: " << lastNumber << endl;
 		start++;
 	}
@@ -138,11 +137,12 @@ int main()
 	out.open(path, ios::out);
 	int n;
 	cin >> n;
+	srand((unsigned int)time(NULL));
 	for (int i = 0; i < n; i++) {
 		string question = calc.MakeFormula();
 		//cout << question << endl;
 		string ret = calc.Solve(question);
-		cout <<  ret << endl;
+		out <<  ret << endl;
 	}
 	out.close();
 	return 0;
