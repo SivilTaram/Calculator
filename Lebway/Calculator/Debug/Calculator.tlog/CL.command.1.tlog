@@ -1,0 +1,2 @@
+^D:\GITHUB\CALCULATOR\LEBWAY\CALCULATOR\CALCULATOR.CPP
+/c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"DEBUG\\" /Fd"DEBUG\VC142.PDB" /Gd /TP /analyze- /FC D:\GITHUB\CALCULATOR\LEBWAY\CALCULATOR\CALCULATOR.CPP
