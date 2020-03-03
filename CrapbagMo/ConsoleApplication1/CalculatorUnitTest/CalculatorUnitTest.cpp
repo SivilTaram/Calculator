@@ -22,8 +22,8 @@ namespace CalculatorUnitTest
 		TEST_METHOD(TestMethod2)
 		{
 			Calculator* calc = new Calculator();
-			string ret = calc->Solve("22-22");
-			Assert::AreEqual(ret, (string)"22-22=0");
+			string ret = calc->Solve("36-47-96");
+			Assert::AreEqual(ret, (string)"36-47-96=-107");
 			ret = calc->Solve("10-20");
 			Assert::AreEqual(ret, (string)"10-20=-10");
 		}
@@ -40,8 +40,8 @@ namespace CalculatorUnitTest
 		TEST_METHOD(TestMethod4)
 		{
 			Calculator* calc = new Calculator();
-			string ret = calc->Solve("22/22");
-			Assert::AreEqual(ret, (string)"22/22=1");
+			string ret = calc->Solve("0/22");
+			Assert::AreEqual(ret, (string)"0/22=0");
 			ret = calc->Solve("20/10");
 			Assert::AreEqual(ret, (string)"20/10=2");
 		}
