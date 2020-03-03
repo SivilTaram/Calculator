@@ -5,17 +5,21 @@
 #include <ctime>
 #include <string>
 #include "Calculator.h"
-
-#define random(a,b) (rand()%(b-a+1)+a)
+#include <fstream>
 
 using namespace std;
 
 Calculator::Calculator() {}
 
+int random(int a, int b)
+{
+	return (rand() % (b - a + 1) + a);
+}
+
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	//srand((unsigned int)time(NULL));
+	int count = random(1, 2);
 	int start = 0;
 	int number1 = random(1, 100);
 	formula += to_string(number1);
@@ -42,7 +46,7 @@ string Calculator::Solve(string formula) {
 			}
 			else {
 				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
+					tempStack->push_back(formula.substr(k, j + 1 - k));
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
@@ -54,7 +58,7 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+						tempStack->push_back(string(1, operatorStack->top()));
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
 					}
@@ -104,12 +108,17 @@ string Calculator::Solve(string formula) {
 
 int main()
 {
+	srand((unsigned)time(NULL));
+	int times;
+	scanf("%d", &times);
+	ofstream outfile;
+	outfile.open("subject.txt");
 	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22");
-	cout << ret << endl;
-	getchar();
+	for (int i = 0; i < times; i++) {
+		string question = calc->MakeFormula();
+		string ret = calc->Solve(question);
+		outfile << ret << endl;
+	}
 }
 
 

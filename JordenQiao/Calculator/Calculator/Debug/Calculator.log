@@ -1,3 +1,5 @@
-﻿  Calculator.cpp
-D:\BUAA\junior\Software Project\Calculator\JordenQiao\Calculator\Calculator\Calculator.cpp(71,20): warning C4018:  '<': signed/unsigned mismatch
+﻿Calculator.cpp(113,2): warning :  'scanf' is deprecated: This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [-Wdeprecated-declarations]
+D:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1273,20): message :  'scanf' has been explicitly marked deprecated here
+D:\IDE\Visual Studio 2019\Community\VC\Tools\MSVC\14.22.27905\include\vcruntime.h(297,55): message :  expanded from macro '_CRT_INSECURE_DEPRECATE'
+D:\IDE\Visual Studio 2019\Community\VC\Tools\MSVC\14.22.27905\include\vcruntime.h(287,47): message :  expanded from macro '_CRT_DEPRECATE_TEXT'
   Calculator.vcxproj -> D:\BUAA\junior\Software Project\Calculator\JordenQiao\Calculator\Debug\Calculator.exe
