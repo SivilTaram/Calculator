@@ -1,0 +1,3 @@
+﻿  Calculator.cpp
+D:\homework\software_en\Calculator\Mistariano\Calculator\Calculator\Calculator.cpp(71,20): warning C4018:  “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> D:\homework\software_en\Calculator\Mistariano\Calculator\Debug\Calculator.exe
