@@ -5,7 +5,8 @@
 #include <iostream>
 #include "stdlib.h"
 #include <ctime>
-#include <string>  
+#include <string>
+#include <config.h>
 using namespace std;
 
 class Calculator {
