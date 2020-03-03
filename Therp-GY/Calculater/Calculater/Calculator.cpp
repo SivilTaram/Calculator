@@ -118,9 +118,9 @@ int main()
 	ofstream fout(filename.c_str());
 	Calculator* calc = new Calculator();
 	cout << "你要做几道题：" << endl;
-	//cin >> n;
+	cin >> n;
 	srand((unsigned int)time(NULL));
-	for (int i = 0; i < 100000; i++) {
+	for (int i = 0; i < n; i++) {
 		string question = calc->MakeFormula();
 		cout << question << endl;
 		fout << calc->Solve(question) << endl;
