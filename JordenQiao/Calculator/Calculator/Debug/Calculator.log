@@ -1,0 +1,3 @@
+﻿  Calculator.cpp
+D:\BUAA\junior\Software Project\Calculator\JordenQiao\Calculator\Calculator\Calculator.cpp(71,20): warning C4018:  '<': signed/unsigned mismatch
+  Calculator.vcxproj -> D:\BUAA\junior\Software Project\Calculator\JordenQiao\Calculator\Debug\Calculator.exe
