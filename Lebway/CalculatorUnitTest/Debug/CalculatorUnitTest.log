@@ -1,0 +1,3 @@
+  pch.cpp
+  CalculatorUnitTest.cpp
+LINK : fatal error LNK1104: 无法打开文件“..\Calculator\Debug\stdafx.obj”
