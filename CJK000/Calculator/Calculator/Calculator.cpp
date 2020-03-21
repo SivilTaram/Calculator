@@ -104,14 +104,16 @@ string Calculator::Solve(string formula) {
 	return formula + "=" + calcStack->top();
 }
 
+
 int main()
 {
-	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22");
-	cout << ret << endl;
-	getchar();
+	for (int i = 0; i < 10000000; i++) {
+		Calculator* calc = new Calculator();
+		string question = calc->MakeFormula();
+		cout << question << endl;
+		string ret = calc->Solve("11+22");
+		cout << ret << endl;
+	}
 }
 
 
