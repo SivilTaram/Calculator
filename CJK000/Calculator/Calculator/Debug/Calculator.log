@@ -1,0 +1,3 @@
+﻿  Calculator.cpp
+d:\学习\dev-c++\编译\软件工程\calculator\cjk000\calculator\calculator\calculator.cpp(73): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> D:\学习\dev-c++\编译\软件工程\Calculator\CJK000\Calculator\Debug\Calculator.exe
