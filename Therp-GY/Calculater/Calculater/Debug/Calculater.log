@@ -1,0 +1,5 @@
+﻿  Calculator.cpp
+E:\北航\北航大三\软件工程\Calculator\Therp-GY\Calculater\Calculater\Calculator.cpp(80,20): warning C4018:  “<”: 有符号/无符号不匹配
+E:\北航\北航大三\软件工程\Calculator\Therp-GY\Calculater\Calculater\Calculator.cpp(116,6): warning C4101:  “n”: 未引用的局部变量
+  Calculater.vcxproj -> E:\北航\北航大三\软件工程\Calculator\Therp-GY\Calculater\Debug\Calculater.exe
+E:\北航\北航大三\软件工程\Calculator\Therp-GY\Calculater\Calculater\Calculator.cpp(128): warning C6031: 返回值被忽略: “getchar”。
