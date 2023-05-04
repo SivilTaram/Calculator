@@ -1,15 +1,21 @@
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Stack;
-
 public class Main {
-
     private static String[] op = { "+", "-", "*", "/" };// Operation set
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws FileNotFoundException {
         String question = MakeFormula();
         System.out.println(question);
         String ret = Solve(question);
         System.out.println(ret);
-    }
 
+        PrintStream ps = new PrintStream("D:\\Data\\question.txt");//括号里的是自己电脑上的文件路径
+        System.setOut(ps);
+        System.out.println(question);
+        System.out.println(ret);
+        ps.close();
+    }
     public static String MakeFormula(){
         StringBuilder build = new StringBuilder();
         int count = (int) (Math.random() * 2) + 1; // generate random count
@@ -24,7 +30,6 @@ public class Main {
         }
         return build.toString();
     }
-
     public static String Solve(String formula){
         Stack<String> tempStack = new Stack<>();//Store number or operator
         Stack<Character> operatorStack = new Stack<>();//Store operator
